@@ -1,12 +1,16 @@
-name: Hello World
+name: Demo Workflow
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  demo:
+  say-hello:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  steps:
-    -name: Greetings
-    run: echo "Hello World!"
+      - name: Echo Hello World
+        run: echo "Hello World"
